@@ -1,0 +1,13 @@
+.slider-header {
+	 padding: 0 0 5px;
+}
+ .slider-header .slides img {
+	 width: 100vw;
+     height: auto;
+}
+
+/* @media (max-width: 768px) {
+	.slider-header .slides img{
+		height: 60vh;
+	}
+} */

@@ -29,7 +29,7 @@ if( $is_preview ) {
 }
 ?>
 
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className) ?>">
+<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
     <?php if(have_rows('slides')) : ?>
         <div class="slides">
             <?php while(have_rows('slides')) : the_row(); 

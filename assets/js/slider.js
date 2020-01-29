@@ -26,9 +26,23 @@
             
     }
 
+    var initializeBlockHeader = function( $block ) {
+        $block.find('.slides').slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            adaptiveHeight: true
+        });
+            
+    }
+
     // Initialize each block on page load (front end).
     $(document).ready(function(){
         $('.slider').each(function(){
+            initializeBlock( $(this) );
+        });
+        $('.slider-header').each(function(){
             initializeBlock( $(this) );
         });
     });
@@ -36,6 +50,7 @@
     // Initialize dynamic block preview (editor).
     if( window.acf ) {
         window.acf.addAction( 'render_block_preview/type=slider', initializeBlock );
+        window.acf.addAction( 'render_ACF_slider_header', initializeBlockHeader );
     }
 
 })(jQuery);
