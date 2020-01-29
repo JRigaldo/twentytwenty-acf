@@ -6,6 +6,12 @@
 	 width: auto;
 	 padding: 2vh;
 }
+
+@media (max-width: 768px) {
+	.slider .slides img{
+		height: 60vh;
+	}
+}
  /* .slider.is-admin:before {
 	 display: block;
 	 content: "";

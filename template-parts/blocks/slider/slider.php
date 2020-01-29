@@ -29,19 +29,18 @@ if( $is_preview ) {
 }
 ?>
 
-<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> block-link">
-	<?php  if(have_rows('slides')) : ?>
-	<div class="slides template-image">
-		<?php while(have_rows('slides')) : the_row(); ?>
-		<?php $image = get_sub_field('image'); ?>
-		<!-- <div class="banner-image"> -->
-		<?php if($image): ?>
-		<?php echo wp_get_attachment_image($image['id'], 'full'); ?>
-		<figcaption class="overlay has-larg-font-size has-text-align-left"><?php the_sub_field('figcaption'); ?>
-		</figcaption>
-		<?php endif; ?>
-		<!-- </div> -->
-	</div>
-	<?php endwhile; ?>
-	<?php endif; ?>
-</section>
+<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className) ?>">
+    <?php if(have_rows('slides')) : ?>
+        <div class="slides">
+            <?php while(have_rows('slides')) : the_row(); 
+                $image = get_sub_field('image');
+            ?>
+            <div>
+                <?php echo wp_get_attachment_image($image['id'], 'full'); ?>
+            </div>
+            <?php endwhile; ?>
+        </div>
+    <?php else:  ?>
+        Please add some sliders.
+    <?php endif; ?>
+</div>
