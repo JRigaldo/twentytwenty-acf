@@ -12,6 +12,19 @@
 		height: 60vh;
 	}
 }
+
+.slide-item{
+	position: relative;
+}
+
+.slick-slider .slick-track .slick-slide{
+	position: relative;
+}
+.slide-item.slick-slide.slick-current.slick-active.slick-center{
+	position: relative;
+}
+
+
  /* .slider.is-admin:before {
 	 display: block;
 	 content: "";
