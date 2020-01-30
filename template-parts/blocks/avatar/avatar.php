@@ -10,13 +10,13 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'slider-' . $block['id'];
+$id = 'avatar-' . $block['id'];
 if( !empty($block['anchor']) ) {
     $id = $block['anchor'];
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
-$className = 'slider';
+$className = 'avatar';
 if( !empty($block['className']) ) {
     $className .= ' ' . $block['className'];
 }
@@ -29,18 +29,15 @@ if( $is_preview ) {
 }
 ?>
 
-<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
-    <?php if(have_rows('slides')) : ?>
-        <div class="slides">
-            <?php while(have_rows('slides')) : the_row(); 
-                $image = get_sub_field('image');
-            ?>
-            <div>
-                <?php echo wp_get_attachment_image($image['id'], 'full'); ?>
-            </div>
-            <?php endwhile; ?>
+<div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> container">
+    <div class="row">
+        <div class="col-sm-6 contact-admin">
+            <span class="profile-avatar">
+                <img src="<?php the_field('tsm_local_avatar'); ?>">
+            </span>
+            <span class="profile-text">
+                <?php the_field('avatar_text'); ?>
+            </span>
         </div>
-    <?php else:  ?>
-        Please add some sliders.
-    <?php endif; ?>
+    </div>
 </div>

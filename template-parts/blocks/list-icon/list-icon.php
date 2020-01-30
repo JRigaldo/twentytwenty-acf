@@ -31,19 +31,20 @@ if( !empty($block['align']) ) {
 ?>
 
 <aside id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-6">
+    <div class="row">
             <?php  if(have_rows('list_icon')) : ?>
             <?php while(have_rows('list_icon')) : the_row(); ?>
+            <div class="col-md-6">
             <div class="list-content">
                 <span class="list-icon">
                     <?php twentytwenty_the_theme_svg( 'clipboard' ); ?>
                 </span>
                 <h4 class="heading-size-4"><?php the_sub_field('list_item'); ?></h4>
             </div>
+            </div>
 
             <?php endwhile; ?>
             <?php endif; ?>
-        </div>
+        
     </div>
 </aside>

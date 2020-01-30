@@ -7,43 +7,50 @@
  * @since 1.0.0
  */
 
-$entry_header_classes = '';
+if(is_home || is_frontpage){
+	$entry_header_classes = '';
 
-if ( is_singular() ) {
-	$entry_header_classes .= ' header-footer-group';
+	if ( is_singular() ) {
+		$entry_header_classes .= ' header-footer-group';
+	}
+
+	$value = get_sub_field('slides', 'option');
 }
 
-$value = get_sub_field('slides', 'option');
+
 
 ?>
 
-
-<figure class="slider-header template-image">
-	<?php if(have_rows('slider_header', 'option')) : ?>
-	<div class="slides">
-		<?php while(have_rows('slider_header', 'option')) : the_row(); ?>
-		<div class="slide-item">
-			<figcaption class="overlay has-larg-font-size has-text-align-center">
-				<?php  the_sub_field('figcaption', 'option'); ?>
-			</figcaption>
-			<img src="<?php the_sub_field('slides', 'option'); ?>" alt="">
-			<button class="banner-toggle">
-				<a href="<?php the_sub_field('link', 'option'); ?>">
-					<span class="toggle-inner">
-						<span class="button-text">
-							<?php  the_sub_field('button', 'option') ?>
-						</span>
-						<span class="toggle-icon">
-							<?php twentytwenty_the_theme_svg( 'arrow-right' ); ?>
-						</span>
-					</span>
-				</a>
-			</button>
-		</div>
-		<?php endwhile; ?>
-	</div>
+<?php  
+	if(is_home || is_frontpage) : ?>
+		<figure class="slider-header template-image">
+			<?php if(have_rows('slider_header', 'option')) : ?>
+			<div class="slides">
+				<?php while(have_rows('slider_header', 'option')) : the_row(); ?>
+				<div class="slide-item">
+					<figcaption class="overlay has-larg-font-size has-text-align-center">
+						<?php  the_sub_field('figcaption', 'option'); ?>
+					</figcaption>
+					<img src="<?php the_sub_field('slides', 'option'); ?>" alt="">
+					<button class="banner-toggle">
+						<a href="<?php the_sub_field('link', 'option'); ?>">
+							<span class="toggle-inner">
+								<span class="button-text">
+									<?php  the_sub_field('button', 'option') ?>
+								</span>
+								<span class="toggle-icon">
+									<?php twentytwenty_the_theme_svg( 'arrow-right' ); ?>
+								</span>
+							</span>
+						</a>
+					</button>
+				</div>
+				<?php endwhile; ?>
+			</div>
+			<?php endif; ?>
+		</figure>
 	<?php endif; ?>
-</figure>
+
 
 
 <header class="<?php echo esc_attr( $entry_header_classes ); ?>">
