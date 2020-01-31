@@ -7,22 +7,19 @@
  * @since 1.0.0
  */
 
-if(is_home || is_frontpage){
-	$entry_header_classes = '';
+$entry_header_classes = '';
 
-	if ( is_singular() ) {
+if ( is_singular() ) {
 		$entry_header_classes .= ' header-footer-group';
 	}
 
+if ( is_front_page() ) {
 	$value = get_sub_field('slides', 'option');
 }
 
-
-
 ?>
 
-<?php  
-	if(is_home || is_frontpage) : ?>
+<?php if ( is_front_page() ) : ?>
 		<figure class="slider-header template-image">
 			<?php if(have_rows('slider_header', 'option')) : ?>
 			<div class="slides">
@@ -49,6 +46,18 @@ if(is_home || is_frontpage){
 			</div>
 			<?php endif; ?>
 		</figure>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 contact-admin">
+					<span class="profile-avatar">
+						<img src="<?php the_field('tsm_local_avatar', 'option'); ?>">
+					</span>
+					<span class="profile-text">
+						<?php the_field('avatar_text', 'option'); ?>
+					</span>
+				</div>
+			</div>
+		</div>
 	<?php endif; ?>
 
 
