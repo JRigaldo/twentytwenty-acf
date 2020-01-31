@@ -48,7 +48,7 @@ if ( is_front_page() ) {
 		</figure>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-6 contact-admin">
+				<div class="col-dm-12 contact-admin">
 					<span class="profile-avatar">
 						<img src="<?php the_field('tsm_local_avatar', 'option'); ?>">
 					</span>
